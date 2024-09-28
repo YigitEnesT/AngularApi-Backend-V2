@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2bQUDjHI7VGANI2UcTNEf+rw+pPboMl8WlhO249v0REUqefaPsXw4dj0gCuWDPmH0oL9aHMyu6rPJ7FQXG4d4Q==",
+  "dgSpecHash": "m+mqYayHPxtZnFELVYRqnYi2/m2yz8Gjf+n0HN5Ok+ljPMVnelT4v6nOtqLLdPDwt6EDMImN8KG7ggHzuPo93A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\yetun\\source\\repos\\AngularAPI\\AngularAPI\\AngularAPI.csproj",
+  "projectFilePath": "C:\\Users\\yetun\\Desktop\\GitHub Dosyaları\\GitPROJE\\AngularApi-Backend\\AngularAPI\\AngularAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yetun\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\yetun\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

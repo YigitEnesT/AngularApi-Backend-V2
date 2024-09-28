@@ -34,20 +34,22 @@ namespace AngularAPI.Controllers
                 {
                     return BadRequest("Kullanıcı zaten kayıtlı");
                 }
+                var userExists2 = _dbContext.Employees.FirstOrDefault(y => y.Order == emp.Order);
+                if (userExists2 != null)
+                {
+                    return BadRequest("Aynı order sırasına sahip bir kayıt var!");
+                }
+                emp.Department=emp.Department.ToUpper();
 
                 emp.Id = Guid.NewGuid();
                 await _dbContext.Employees.AddAsync(emp);
                 await _dbContext.SaveChangesAsync();
-                return Ok("Ekleme işlemi başarılı!");
+                return Ok();
             }
             else
-                return BadRequest("???");
-
-            //daha önce bu mail adresiyle ilgili bir kayıt var mı kontrol et?
-
-            //1- kayıt varsa kullanıcı kayıtlı diyerek eklemeden geri döndür
-
-            //2- kayıt yoksa kullanıcıyı kaydet           
+            {
+                return BadRequest("Başarısız işlem");
+            }    
         }
 
         [HttpGet("GetIdEmployee")]
@@ -78,11 +80,20 @@ namespace AngularAPI.Controllers
                 return BadRequest("Bu mail adresi başkası tarafından kullanılmakta!");
             }
 
+            var userExist2 = _dbContext.Employees.FirstOrDefault(y =>  y.Order == updateEmp.Order && y.Id != updateEmp.Id);
+            if(userExist2 != null)
+            {
+                return BadRequest("Aynı Order değerine sahip başka bir kullanıcı var!");
+               
+            }
+            
+
+
             emp.Name = updateEmp.Name;
             emp.Email = updateEmp.Email;
             emp.Phone = updateEmp.Phone;
             emp.Salary = updateEmp.Salary;
-            emp.Department = updateEmp.Department;
+            emp.Department = updateEmp.Department.ToUpper();
             emp.Order = updateEmp.Order;
 
             await _dbContext.SaveChangesAsync();
